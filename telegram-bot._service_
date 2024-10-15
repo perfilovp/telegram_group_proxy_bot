@@ -1,0 +1,19 @@
+[Unit]
+Description=Telegram Bot Service
+After=network.target
+
+[Service]
+Type=notify
+#User=root
+User=telegrambot
+Group=telegrambot
+Restart=on-failure
+RestartSec=60s
+WorkingDirectory=/opt/telegram-bot
+ExecStart=/opt/telegram-bot/venv/bin/python /opt/telegram-bot/run.py  --GROUP_ID {{GROUP_ID}} --TOKEN {{TOKEN}}
+TimeoutStartSec=300   
+TimeoutStopSec=300
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
