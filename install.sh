@@ -7,6 +7,8 @@ fi
 TOKEN=$1
 GROUP_ID=$2
 
+sudo groupadd telegrambot
+
 sudo useradd -r -G telegrambot telegrambot -r -s /bin/false 
 sudo usermod -s /usr/sbin/nologin telegrambot
 
